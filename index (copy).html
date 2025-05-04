@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A New Century - Victoria 3 Mod</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #utc-clock {
+      font-weight: bold;
+      margin-top: 10px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>A New Century</h1>
+    <p>A Victoria 3 Total Conversion Mod</p>
+    <div id="utc-clock">Loading time...</div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/developers.html">Developers</a></li>
+      <li><a href="/changelogs.html">Changelogs</a></li>
+      <li><a href="/credits.html">Credits</a></li>
+      <li><a href="/randoposts.html">Random Posts</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About the Mod</h2>
+      <p>"A New Century" is a mod for Victoria 3 that aims to recreate a modern day world, where you can choose the
+        timeline and make the future, this mod contains paths toward peace or war with new events, journal entries, new
+        buildings and much more!</p>
+    </section>
+
+    <section id="devlogs">
+      <h2>Current Available Content</h2>
+      <div id="devlog-container"></div>
+      <img src="events.png" alt="TEST" style="width:  40%;">
+    </section>
+
+    <footer>
+      <p>© 2025 A New Century Mod Team</p>
+    </footer>
+
+    <footer>
+      <p>Website Made By Hyawii</p>
+    </footer>
+
+    <script>
+      function updateUTCTime() {
+        const now = new Date();
+        const utc2 = new Date(now.getTime() + (2 * 60 * 60 * 1000)); // UTC+2
+
+        const options = {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false,
+          timeZone: 'Etc/GMT-2' // JavaScript flips the sign here: GMT-2 is actually UTC+2
+        };
+
+        const formatted = utc2.toLocaleString('en-GB', options);
+        document.getElementById("utc-clock").textContent = `Current UTC+2 Time: ${formatted}`;
+      }
+
+      setInterval(updateUTCTime, 1000);
+      updateUTCTime();
+    </script>
+
+</body>
+
+</html>
